@@ -5,6 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nursing Data Analysis with SPSS - GVSU KCON</title>
     <style>
+        .sidebar {
+    width: 100%; /* Full width on smaller screens */
+    max-width: 250px; /* Limit width on larger screens */
+    flex-shrink: 0;
+}
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow: auto;
+    background-color: #ffffff;
+    width: 100%; /* Ensure content takes up full width */
+}
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Sidebar stacks on smaller screens */
+    }
+    .container {
+        flex-direction: column; /* Stack sidebar and content vertically */
+    }
+}
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -12,6 +33,7 @@
             display: flex;
             flex-direction: column;
         }
+
         header {
             background-color: #00548d;
             color: white;
@@ -21,27 +43,31 @@
             justify-content: space-between;
             height: 80px;
         }
+
         header img {
             height: 60px;
         }
+
         header h1 {
             color: white;
             font-size: 24px;
             margin: 0;
         }
+
         .container {
             display: flex;
             flex-grow: 1;
-            height: calc(100vh - 80px); /* Full height minus header */
+            height: calc(100vh - 80px);
         }
+
         .sidebar {
             width: 250px;
             background-color: #f4f4f4;
             padding: 20px;
-            position: relative;
             height: 100%;
             overflow: auto;
         }
+
         .sidebar a {
             display: block;
             color: #00548d;
@@ -50,24 +76,30 @@
             margin-bottom: 10px;
             border-radius: 4px;
         }
+
         .sidebar a:hover {
             background-color: #ddd;
         }
+
         .content {
             flex-grow: 1;
             padding: 20px;
             overflow: auto;
             background-color: #ffffff;
         }
+
         h2 {
             color: #00548d;
         }
+
         .content-section {
             display: none;
         }
+
         .content-section.active {
             display: block;
         }
+
         footer {
             background-color: #00548d;
             color: white;
@@ -77,16 +109,19 @@
             bottom: 0;
             width: 100%;
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
         }
+
         table, th, td {
             border: 1px solid #00548d;
             padding: 10px;
             text-align: left;
         }
+
         th {
             background-color: #00548d;
             color: white;
@@ -94,83 +129,73 @@
     </style>
 </head>
 <body>
+    <header>
+        <img src="https://imgur.com/o29E3rb.jpg" alt="GVSU Logo" width="200" height="80">
+        <h1>Nursing Data Analysis with SPSS</h1>
+    </header>
 
-<header>
-    <img src="https://imgur.com/o29E3rb.jpg" alt="GVSU Logo" width="200" height="80">
-    <h1>Nursing Data Analysis with SPSS</h1>
-</header>
-
-<div class="container">
-    <div class="sidebar">
-        <a href="#" onclick="showContent('desc-stats')">Descriptive Statistics</a>
-        <a href="#" onclick="showContent('t-test')">Independent Samples T-Test</a>
-        <a href="#" onclick="showContent('paired-t-test')">Paired Samples T-Test</a>
-        <a href="#" onclick="showContent('anova')">One-Way ANOVA</a>
-        <a href="#" onclick="showContent('chi-square')">Chi-Square Test</a>
-        <a href="#" onclick="showContent('correlation')">Correlation Analysis</a>
-        <a href="#" onclick="showContent('linear-regression')">Simple Linear Regression</a>
-        <a href="#" onclick="showContent('multiple-regression')">Multiple Linear Regression</a>
-        <a href="#" onclick="showContent('logistic-regression')">Binary Logistic Regression</a>
-        <a href="#" onclick="showContent('survival')">Kaplan-Meier Survival Analysis</a>
-    </div>
-
-    <div class="content">
-        <div id="desc-stats" class="content-section active">
-            <h2>Descriptive Statistics</h2>
-            <p><strong>Steps in SPSS:</strong></p>
-            <ol>
-                <li>Go to <em>Analyze > Descriptive Statistics > Frequencies</em>.</li>
-                <img src="https://imgur.com/tR0hTge.png" alt="Descriptive Statistics" width="900" height="500">
-                <li>Select the variables you want to summarize (e.g., age, weight, gender).</li>
-                <li>Click <strong>OK</strong> to generate frequencies or descriptive statistics.</li>
-            </ol>
-            <p><strong>Example Output:</strong></p>
-            <img src="https://imgur.com/HnVKqQA.png" alt="Descriptive Statistics Output" width="400" height="200">
-            <h2>Variable Interpretations</h2>
-            <p><strong>Age:</strong> The sample's age distribution has a mean of 48 years and a standard deviation of 7.97 years, indicating moderate spread. Most individuals fall between 35 (minimum) and 63 (maximum), with the most frequent age being 35.</p>
-            <p><strong>BMI:</strong> The average BMI is 29.07, indicating participants are mostly in the overweight range. The values vary narrowly, with a standard deviation of 2.38, spanning from 24.3 to 33.0. The most frequent BMI is 28.5.</p>
-            <p><strong>SBP_Pre (Systolic Blood Pressure Before Intervention):</strong> The mean SBP before intervention is 144.3 mmHg, with a standard deviation of 8.07 mmHg. Values range from 130 to 155 mmHg, indicating a hypertensive group requiring intervention. The most common SBP is 145 mmHg.</p>
-            <p><strong>DBP_Pre (Diastolic Blood Pressure Before Intervention):</strong> The mean DBP is 93 mmHg, with a standard deviation of 7.23 mmHg. Values range from 80 to 105 mmHg, with 95 mmHg being the most frequent value, indicating high diastolic pressure.</p>
-            <p><strong>SBP_Post (Systolic Blood Pressure After Intervention):</strong> The mean SBP decreased to 135.2 mmHg, with a narrower standard deviation of 6.21 mmHg. Values now range from 125 to 145 mmHg, with 135 mmHg as the most frequent value, reflecting improved control post-intervention.</p>
-            <p><strong>DBP_Post (Diastolic Blood Pressure After Intervention):</strong> The mean DBP decreased to 87.3 mmHg, with a standard deviation of 4.74 mmHg. Values range from 78 to 95 mmHg, with the most frequent value being 85 mmHg, indicating tighter control of diastolic pressure.</p>
-            <h2>Conclusion</h2>
-            <p>The analysis of the sample's health metrics reveals several critical insights regarding the participants' demographics and health status. The age distribution indicates a mature population, predominantly in the overweight category, as reflected by the average BMI. The elevated systolic and diastolic blood pressure readings prior to intervention suggest a significant prevalence of hypertension among participants, highlighting a need for medical intervention.</p>
-            
-            <p>Post-intervention results demonstrate a marked improvement in both systolic and diastolic blood pressure, indicating that the intervention was effective in managing hypertension. This positive change suggests that the strategies employed during the intervention were successful in promoting better cardiovascular health among participants.</p>
-            
-            <p>In conclusion, the data underscores the importance of targeted health interventions for managing weight and blood pressure, particularly in populations at risk due to age and existing health conditions. Continued monitoring and further studies may be beneficial to assess long-term outcomes and refine intervention strategies.</p>
+    <div class="container">
+        <div class="sidebar">
+            <a href="#" onclick="showContent('desc-stats')">Descriptive Statistics</a>
+            <a href="#" onclick="showContent('t-test')">Independent Samples T-Test</a>
+            <a href="#" onclick="showContent('paired-t-test')">Paired Samples T-Test</a>
+            <a href="#" onclick="showContent('anova')">One-Way ANOVA</a>
+            <a href="#" onclick="showContent('chi-square')">Chi-Square Test</a>
+            <a href="#" onclick="showContent('correlation')">Correlation Analysis</a>
+            <a href="#" onclick="showContent('linear-regression')">Simple Linear Regression</a>
+            <a href="#" onclick="showContent('multiple-regression')">Multiple Linear Regression</a>
+            <a href="#" onclick="showContent('logistic-regression')">Binary Logistic Regression</a>
+            <a href="#" onclick="showContent('survival')">Kaplan-Meier Survival Analysis</a>
         </div>
 
-        <div id="t-test" class="content-section">
-            <h2>Independent Samples T-Test</h2>
-            <p><strong>Steps in SPSS:</strong></p>
-            <ol>
-                <li>Go to <em>Analyze > Compare Means > Independent-Samples T-Test</em>.</li>
-                <li>Select your test variable (e.g., systolic blood pressure) and grouping variable (e.g., gender).</li>
-                <li>Define the groups (e.g., 1 = Male, 2 = Female).</li>
-                <li>Click <strong>OK</strong> to run the test.</li>
-            </ol>
-            <p><strong>Example Output:</strong></p>
-            <table>
-                <tr>
-                    <th>Group</th>
-                    <th>Mean Blood Pressure</th>
-                    <th>Std. Deviation</th>
-                    <th>Sig. (2-tailed)</th>
-                </tr>
-                <tr>
-                    <td>Male</td>
-                    <td>130</td>
-                    <td>15</td>
-                    <td rowspan="2">0.05</td>
-                </tr>
-                <tr>
-                    <td>Female</td>
-                    <td>125</td>
-                    <td>14</td>
-                </tr>
-            </table>
-            <p><strong>Interpretation:</strong> The independent t-test reveals a significant difference in blood pressure between males (M = 130) and females (M = 125), p = 0.05. This suggests that males have a higher average blood pressure than females.</p>
+        <div class="content">
+            <!-- Descriptive Statistics Section -->
+            <div id="desc-stats" class="content-section active">
+                <h2>Descriptive Statistics</h2>
+                <p><strong>Steps in SPSS:</strong></p>
+                <ol>
+                    <li>Go to <em>Analyze > Descriptive Statistics > Frequencies</em>.</li>
+                    <li>Select the variables you want to summarize (e.g., age, weight, gender).</li>
+                    <li>Click <strong>OK</strong> to generate frequencies or descriptive statistics.</li>
+                </ol>
+                <img src="https://imgur.com/tR0hTge.png" alt="Descriptive Statistics" width="900" height="500">
+                <p><strong>Example Output:</strong></p>
+                <img src="https://imgur.com/HnVKqQA.png" alt="Descriptive Statistics Output" width="400" height="200">
+
+                <h3>Variable Interpretations</h3>
+                <p><strong>Age:</strong> The sample's age distribution has a mean of 48 years and a standard deviation of 7.97 years, indicating moderate spread. Most individuals fall between 35 (minimum) and 63 (maximum), with the most frequent age being 35.</p>
+                <p><strong>BMI:</strong> The average BMI is 29.07, indicating participants are mostly in the overweight range. The values vary narrowly, with a standard deviation of 2.38, spanning from 24.3 to 33.0. The most frequent BMI is 28.5.</p>
+                <p><strong>SBP_Pre:</strong> The mean SBP before intervention is 144.3 mmHg, with a standard deviation of 8.07 mmHg. Values range from 130 to 155 mmHg, indicating a hypertensive group requiring intervention. The most common SBP is 145 mmHg.</p>
+                <p><strong>DBP_Pre:</strong> The mean DBP is 93 mmHg, with a standard deviation of 7.23 mmHg. Values range from 80 to 105 mmHg, with 95 mmHg being the most frequent value, indicating high diastolic pressure.</p>
+                <p><strong>SBP_Post:</strong> The mean SBP decreased to 135.2 mmHg, with a narrower standard deviation of 6.21 mmHg. Values now range from 125 to 145 mmHg, with 135 mmHg as the most frequent value, reflecting improved control post-intervention.</p>
+                <p><strong>DBP_Post:</strong> The mean DBP decreased to 87.3 mmHg, with a standard deviation of 4.74 mmHg. Values range from 78 to 95 mmHg, with the most frequent value being 85 mmHg, indicating tighter control of diastolic pressure.</p>
+
+                <h3>Conclusion</h3>
+                <p>The analysis of the sample's health metrics reveals several critical insights regarding the participants' demographics and health status. The age distribution indicates a mature population, predominantly in the overweight category, as reflected by the average BMI. The elevated systolic and diastolic blood pressure readings prior to intervention suggest a significant prevalence of hypertension among participants, highlighting a need for medical intervention.</p>
+                <p>Post-intervention results demonstrate a marked improvement in both systolic and diastolic blood pressure, indicating that the intervention was effective in managing hypertension. This positive change suggests that the strategies employed during the intervention were successful in promoting better cardiovascular health among participants.</p>
+                <p>In conclusion, the data underscores the importance of targeted health interventions for managing weight and blood pressure, particularly in populations at risk due to age and existing health conditions. Continued monitoring and further studies may be beneficial to assess long-term outcomes and refine intervention strategies.</p>
+            </div>
+
+            <!-- Independent Samples T-Test Section -->
+            <div id="t-test" class="content-section">
+                <h2>Independent Samples T-Test</h2>
+                <p><strong>Steps in SPSS:</strong></p>
+                <ol>
+                    <li>Go to <em>Analyze > Compare Means > Independent-Samples T-Test</em>.</li>
+                    <li>Select your test variable (e.g., systolic blood pressure) and grouping variable (e.g., gender).</li>
+                    <li>Define the groups (e.g., 1 = Male, 2 = Female).</li>
+                    <li>Click <strong>OK</strong> to run the test.</li>
+                </ol>
+                <img src="https://imgur.com/GxUbB8d.jpg" alt="Independent Samples T-Test" width="900" height="500">
+                <p><strong>Example Output:</strong></p>
+                <img src="https://imgur.com/JKcssGv.jpg" alt="Independent Samples T-Test Output" width="900" height="400">
+                <h3>Independent Samples Test Interpretation</h3>
+                <h3>Analysis of SBP_Pre</h3>
+                <p>The mean systolic blood pressure (SBP) for males was 147.00 mmHg (SD = 6.851), while for females, it was 141.60 mmHg (SD = 8.345). Levene's test for equality of variances yielded an F-value of 1.629 (p = 0.205), indicating equal variances can be assumed. The independent samples t-test revealed a statistically significant difference in SBP between genders, with t(98) = 3.537, p = 0.001. The mean difference of 5.400 mmHg (SE = 1.527) indicates that males had a higher SBP than females. The 95% confidence interval for this difference ranged from 2.370 to 8.430 mmHg.</p>
+                <h3>Analysis of DBP_Pre</h3>
+                <p>The mean diastolic blood pressure (DBP) for males was 94.00 mmHg (SD = 5.890), while for females, it was 92.00 mmHg (SD = 8.305). Levene's test for equality of variances yielded an F-value of 2.100 (p = 0.150), supporting the assumption of equal variances. The independent samples t-test showed no statistically significant difference in DBP between genders, with t(98) = 1.389, p = 0.168. The mean difference was 2.000 mmHg (SE = 1.440), with a 95% confidence interval of -0.858 to 4.858 mmHg.</p>
+                <h3>Conclusion</h3>
+                <p>The results indicate a significant difference in SBP between males and females, with males having higher SBP. However, no significant difference was observed in DBP between genders. Further investigation is warranted to understand the factors contributing to these differences.</p>
         </div>
 
         <div id="paired-t-test" class="content-section">
