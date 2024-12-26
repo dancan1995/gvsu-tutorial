@@ -41,11 +41,9 @@
         }
 
         .sidebar {
-            width: 250px;
-            background-color: #f4f4f4;
-            padding: 20px;
-            height: 100%;
-            overflow: auto;
+            width: 100%; /* Full width on smaller screens */
+            max-width: 250px; /* Limit width on larger screens */
+            flex-shrink: 0;
         }
 
         .sidebar a {
@@ -185,30 +183,13 @@
             <p><strong>Steps in SPSS:</strong></p>
             <ol>
                 <li>Go to <em>Analyze > Compare Means > Paired-Samples T-Test</em>.</li>
+                <img src="https://imgur.com/wjhRWPY.jpg" alt="Independent Samples T-Test" width="900" height="500">
                 <li>Select the pair of variables to compare (e.g., pre- and post-intervention blood pressure).</li>
                 <li>Click <strong>OK</strong> to run the test.</li>
             </ol>
             <p><strong>Example Output:</strong></p>
-            <table>
-                <tr>
-                    <th>Time</th>
-                    <th>Mean Blood Pressure</th>
-                    <th>Std. Deviation</th>
-                    <th>Sig. (2-tailed)</th>
-                </tr>
-                <tr>
-                    <td>Pre-intervention</td>
-                    <td>140</td>
-                    <td>10</td>
-                    <td rowspan="2">0.01</td>
-                </tr>
-                <tr>
-                    <td>Post-intervention</td>
-                    <td>130</td>
-                    <td>9</td>
-                </tr>
-            </table>
-            <p><strong>Interpretation:</strong> The paired t-test shows a significant decrease in blood pressure following the intervention (pre: M = 140, post: M = 130, p = 0.01). This indicates that the intervention effectively reduced blood pressure.</p>
+            <img src="https://imgur.com/qhrC06D.jpg" alt="Paired Samples T-Test Output" width="900" height="400">
+            <p><strong>Interpretation:</strong> The paired samples statistics compare diastolic blood pressure (DBP) before (Pre) and after (Post) intervention in 100 participants. The mean DBP decreased significantly from 93.00 to 87.30, with a high correlation (r = .890, p < .001), indicating consistency in the paired measurements. The paired samples t-test reveals a mean difference of 5.70 (95% CI: 4.96 to 6.44), showing a statistically significant reduction in DBP (t = 15.373, df = 99, p < .001). This suggests the intervention effectively reduced DBP. The small standard error (.371) and significant results highlight the reliability and importance of this finding.</p>
         </div>
 
         <div id="anova" class="content-section">
