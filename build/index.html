@@ -659,47 +659,16 @@ th {
     const menuButton = document.querySelector(".menu-button");
     const sidebar = document.querySelector(".sidebar");
     const container = document.querySelector(".container");
-    const content = document.querySelector(".content"); // Select content for toggling scroll behavior
 
     menuButton.addEventListener("click", function () {
-        const screenWidth = window.innerWidth;
-
         // Toggle the sidebar visibility
         sidebar.classList.toggle("active");
 
-        // Check screen width for responsive behavior
-        if (screenWidth <= 768) {
-            // For phones and small screens, push content down
-            if (sidebar.classList.contains("active")) {
-                content.style.marginTop = `${sidebar.offsetHeight}px`; // Push content down
-            } else {
-                content.style.marginTop = "0"; // Reset content position
-            }
+        // Toggle the content shift
+        if (sidebar.classList.contains("active")) {
+            container.classList.add("shifted");
         } else {
-            // For larger screens, shift the container to the side
-            if (sidebar.classList.contains("active")) {
-                container.classList.add("shifted");
-            } else {
-                container.classList.remove("shifted");
-            }
-        }
-    });
-
-    // Adjust content margin on resize to maintain layout consistency
-    window.addEventListener("resize", function () {
-        const screenWidth = window.innerWidth;
-
-        if (screenWidth > 768) {
-            content.style.marginTop = "0"; // Reset for larger screens
-            if (sidebar.classList.contains("active")) {
-                container.classList.add("shifted");
-            } else {
-                container.classList.remove("shifted");
-            }
-        } else if (sidebar.classList.contains("active")) {
-            content.style.marginTop = `${sidebar.offsetHeight}px`;
-        } else {
-            content.style.marginTop = "0";
+            container.classList.remove("shifted");
         }
     });
 });
