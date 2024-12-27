@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nursing Data Analysis with SPSS - GVSU KCON</title>
     <style>
-        /* General Styling (Applies to All Devices) */
+        /* Global Styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -14,6 +14,7 @@ body {
     flex-direction: column;
 }
 
+/* Header Styling */
 header {
     background-color: #00548d;
     color: white;
@@ -43,6 +44,7 @@ header h1 {
     margin-left: 0; /* Default position */
 }
 
+/* Sidebar Styling */
 .sidebar {
     width: 250px;
     height: 100%;
@@ -166,7 +168,6 @@ th {
         height: 40px; /* Smaller height for mobile screens */
         width: auto; /* Maintain aspect ratio */
     }
-}
 
     header h1 {
         font-size: 18px;
@@ -658,16 +659,47 @@ th {
     const menuButton = document.querySelector(".menu-button");
     const sidebar = document.querySelector(".sidebar");
     const container = document.querySelector(".container");
+    const content = document.querySelector(".content"); // Select content for toggling scroll behavior
 
     menuButton.addEventListener("click", function () {
+        const screenWidth = window.innerWidth;
+
         // Toggle the sidebar visibility
         sidebar.classList.toggle("active");
 
-        // Toggle the content shift
-        if (sidebar.classList.contains("active")) {
-            container.classList.add("shifted");
+        // Check screen width for responsive behavior
+        if (screenWidth <= 768) {
+            // For phones and small screens, push content down
+            if (sidebar.classList.contains("active")) {
+                content.style.marginTop = `${sidebar.offsetHeight}px`; // Push content down
+            } else {
+                content.style.marginTop = "0"; // Reset content position
+            }
         } else {
-            container.classList.remove("shifted");
+            // For larger screens, shift the container to the side
+            if (sidebar.classList.contains("active")) {
+                container.classList.add("shifted");
+            } else {
+                container.classList.remove("shifted");
+            }
+        }
+    });
+
+    // Adjust content margin on resize to maintain layout consistency
+    window.addEventListener("resize", function () {
+        const screenWidth = window.innerWidth;
+
+        if (screenWidth > 768) {
+            content.style.marginTop = "0"; // Reset for larger screens
+            if (sidebar.classList.contains("active")) {
+                container.classList.add("shifted");
+            } else {
+                container.classList.remove("shifted");
+            }
+        } else if (sidebar.classList.contains("active")) {
+            content.style.marginTop = `${sidebar.offsetHeight}px`;
+        } else {
+            content.style.marginTop = "0";
         }
     });
 });
