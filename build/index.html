@@ -197,46 +197,22 @@
     <p><strong>Steps in SPSS:</strong></p>
     <ol>
         <li>Go to <em>Analyze > Compare Means > One-Way ANOVA</em>.</li>
+        <img src="https://imgur.com/sIMzIOd.png" alt="One-Way ANOVA" width="900" height="500">
         <li>Select your dependent variable (e.g., systolic blood pressure).</li>
         <li>Select your factor (grouping) variable (e.g., age group: young, middle-aged, older).</li>
         <li>Click <strong>OK</strong> to run the test.</li>
     </ol>
     <p><strong>Example Output:</strong></p>
-    <table>
-        <tr>
-            <th>Source</th>
-            <th>Sum of Squares</th>
-            <th>df</th>
-            <th>Mean Square</th>
-            <th>F</th>
-            <th>Sig.</th>
-        </tr>
-        <tr>
-            <td>Between Groups</td>
-            <td>300</td>
-            <td>2</td>
-            <td>150</td>
-            <td>5.6</td>
-            <td>0.01</td>
-        </tr>
-        <tr>
-            <td>Within Groups</td>
-            <td>2000</td>
-            <td>197</td>
-            <td>10.15</td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Total</td>
-            <td>2300</td>
-            <td>199</td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-    </table>
-    <p><strong>Interpretation:</strong> The ANOVA results show a statistically significant difference in blood pressure between age groups, F(2, 197) = 5.6, p = 0.01. This indicates that blood pressure varies significantly by age group.</p>
+    <img src="https://imgur.com/XEu05ho.png" alt="One-Way ANOVA Output" width="600" height="200">
+        <h3>Hypotheses</h3>
+        <p><strong>Null Hypothesis (H<sub>0</sub>):</strong> There is no significant difference in the pre-intervention systolic blood pressure (SBP_Pre) between groups defined by compliance levels.</p>
+        <p><strong>Alternative Hypothesis (H<sub>1</sub>):</strong> There is a significant difference in the pre-intervention systolic blood pressure (SBP_Pre) between groups defined by compliance levels.</p>
+
+        <h3>Interpretation</h3>
+        <p>The one-way ANOVA test evaluates SBP_Pre differences across 8 compliance groups. The results indicate a statistically significant difference in SBP_Pre among the groups (<strong>F</strong> = 325.470, <strong>p</strong> &lt; .001). The between-groups variability (Sum of Squares = 6191.000) is much larger than the within-groups variability (Sum of Squares = 250.000), suggesting that compliance groups account for substantial variance in SBP_Pre. The mean square for between groups (884.429) far exceeds that within groups (2.717), reflecting strong group effects.</p>
+
+        <h3>Conclusion</h3>
+        <p>Since the p-value is less than .05, we reject the null hypothesis and conclude that compliance levels significantly influence pre-intervention systolic blood pressure. Further post hoc tests are recommended to identify specific group differences.</p>
 </div>
 
 <div id="chi-square" class="content-section">
@@ -244,57 +220,19 @@
     <p><strong>Steps in SPSS:</strong></p>
     <ol>
         <li>Go to <em>Analyze > Descriptive Statistics > Crosstabs</em>.</li>
+        <img src="https://imgur.com/MsUk6bo.png" alt="Chi-Square Test" width="600" height="500">
         <li>Place the categorical variable in the <strong>Row(s)</strong> and <strong>Column(s)</strong> fields.</li>
         <li>Click on <strong>Statistics</strong> and check <em>Chi-square</em>.</li>
+        <img src="https://imgur.com/wOsYcJR.png" alt="Chi-Square Test Options" width="350" height="300">
         <li>Click <strong>OK</strong> to run the test.</li>
     </ol>
     <p><strong>Example Output:</strong></p>
     
-    <h3>Crosstabulation</h3>
-    <table>
-        <tr>
-            <th>Gender</th>
-            <th>Smoker</th>
-            <th>Non-Smoker</th>
-            <th>Total</th>
-        </tr>
-        <tr>
-            <td>Male</td>
-            <td>50</td>
-            <td>30</td>
-            <td>80</td>
-        </tr>
-        <tr>
-            <td>Female</td>
-            <td>20</td>
-            <td>100</td>
-            <td>120</td>
-        </tr>
-        <tr>
-            <th>Total</th>
-            <td>70</td>
-            <td>130</td>
-            <td>200</td>
-        </tr>
-    </table>
-    
-    <h3>Chi-Square Test Results</h3>
-    <table>
-        <tr>
-            <th>Test</th>
-            <th>Value</th>
-            <th>Degrees of Freedom</th>
-            <th>p-value</th>
-        </tr>
-        <tr>
-            <td>Chi-Square</td>
-            <td>12.24</td>
-            <td>1</td>
-            <td>0.0005</td>
-        </tr>
-    </table>
-    
-    <p><strong>Interpretation:</strong> The Chi-Square test indicates a significant association between gender and smoking status (χ²(1, N = 200) = 12.24, p < 0.001). This suggests that smoking habits differ between males and females, with a higher proportion of males being smokers compared to females.</p>
+    <h3>Crosstabulation and Chi-Square Test Results</h3>
+    <img src="https://imgur.com/we6p5aB.png" alt="Chi-Square Crosstabulation" width="500" height="500">
+    <img src="https://imgur.com/bfga5lA.png" alt="Chi-Square Test Output" width="500" height="400">
+    <p><strong>Interpretation:</strong> The crosstabulation results highlight significant differences in outcomes between genders. Among females, 80% (40 out of 50) showed improvement, while 20% (10 out of 50) showed partial improvement. In contrast, all males (100%) demonstrated improvement, with no instances of partial improvement. Females accounted for 44.4% of the "Improved" group and 100% of the "Partially Improved" group, whereas males contributed 55.6% to the "Improved" group and 0% to the "Partially Improved" group. Overall, 90% of participants improved, and 10% had partial improvement.</p>
+    <p>The Chi-Square test further confirms a significant association between gender and outcomes. The Pearson Chi-Square statistic (11.111, p = .001) and other tests, including the Fisher’s Exact Test (p = .001), indicate strong evidence of gender differences in outcomes. Notably, all expected cell counts exceed 5, ensuring the test's validity. These findings suggest gender-specific patterns, with males showing consistently better outcomes and females exhibiting variability, warranting further investigation into underlying factors.</p>
 </div>
 
 <div id="correlation" class="content-section">
@@ -302,31 +240,49 @@
     <p><strong>Steps in SPSS:</strong></p>
     <ol>
         <li>Go to <em>Analyze > Correlate > Bivariate</em>.</li>
+        <img src="https://imgur.com/OgOzUAb.png" alt="Correlation Analysis" width="900" height="700">
         <li>Select the variables you want to analyze (e.g., hours studied and test scores).</li>
         <li>Check <em>Pearson</em> and click <strong>OK</strong>.</li>
     </ol>
     <p><strong>Example Output:</strong></p>
     
     <h3>Correlation Matrix</h3>
-    <table>
-        <tr>
-            <th>Variable</th>
-            <th>Hours Studied</th>
-            <th>Test Score</th>
-        </tr>
-        <tr>
-            <td>Hours Studied</td>
-            <td>1.00</td>
-            <td>0.85</td>
-        </tr>
-        <tr>
-            <td>Test Score</td>
-            <td>0.85</td>
-            <td>1.00</td>
-        </tr>
-    </table>
-    
-    <p><strong>Interpretation:</strong> There is a strong positive correlation between hours studied and test scores (r = 0.85, p < 0.001). This suggests that as study hours increase, test scores tend to increase as well.</p>
+    <img src="https://imgur.com/ecbJSvZ.png" alt="Correlation Matrix" width="600" height="400">
+    <h3>Correlation Matrix Interpretation</h3>
+
+    <h4>1. Age and BMI</h4>
+    <p>There is a <strong>strong positive correlation</strong> between Age and BMI (<strong>0.881</strong>, p < 0.01), meaning that older individuals tend to have higher BMI values.</p>
+
+    <h4>2. Age and Blood Pressure (SBP_Pre, DBP_Pre, SBP_Post, DBP_Post)</h4>
+    <p>Age is positively correlated with all blood pressure variables, with the correlations ranging from <strong>0.592</strong> (SBP_Pre) to <strong>0.626</strong> (SBP_Post). All these correlations are statistically significant (p < 0.01), suggesting that older individuals tend to have higher blood pressure values before and after measurement.</p>
+
+    <h4>3. BMI and Blood Pressure (SBP_Pre, DBP_Pre, SBP_Post, DBP_Post)</h4>
+    <p>BMI also shows positive correlations with all blood pressure variables, ranging from <strong>0.505</strong> (DBP_Post) to <strong>0.554</strong> (SBP_Post), all statistically significant (p < 0.01). This implies that higher BMI values are associated with higher blood pressure values.</p>
+
+    <h4>4. SBP_Pre and DBP_Pre</h4>
+    <p>These two pre-measurements of blood pressure have a <strong>very strong positive correlation</strong> (<strong>0.952</strong>, p < 0.01), indicating that people with higher systolic blood pressure before measurement tend to have higher diastolic blood pressure prior to measurement as well.</p>
+
+    <h4>5. SBP_Post and DBP_Post</h4>
+    <p>Similarly, there is a <strong>very strong positive correlation</strong> (<strong>0.980</strong>, p < 0.01) between the post-measurement systolic and diastolic blood pressures, meaning that higher systolic blood pressure after measurement correlates highly with higher diastolic blood pressure after measurement.</p>
+
+    <h4>6. Pre and Post Blood Pressure Measures</h4>
+    <ul>
+        <li>SBP_Pre and SBP_Post have a <strong>very strong positive correlation</strong> (<strong>0.933</strong>, p < 0.01), meaning that higher systolic blood pressure before measurement is associated with higher systolic blood pressure after measurement.</li>
+        <li>DBP_Pre and DBP_Post also show a <strong>very strong positive correlation</strong> (<strong>0.890</strong>, p < 0.01), meaning that higher diastolic blood pressure before measurement is associated with higher diastolic blood pressure after measurement.</li>
+    </ul>
+
+    <h4>7. Compliance</h4>
+    <p>Compliance has weak and non-significant correlations with the other variables:</p>
+    <ul>
+        <li><strong>Compliance and Age:</strong> A <strong>very weak positive correlation</strong> of <strong>0.054</strong> (p = 0.596), not statistically significant.</li>
+        <li><strong>Compliance and BMI:</strong> A <strong>weak positive correlation</strong> of <strong>0.133</strong> (p = 0.188), not statistically significant.</li>
+        <li><strong>Compliance and Blood Pressure (Pre and Post):</strong> All correlations with blood pressure values (both pre and post) are weak and non-significant, ranging from <strong>0.064</strong> (SBP_Pre) to <strong>-0.123</strong> (DBP_Post). This suggests that compliance with the intervention is not strongly associated with age, BMI, or blood pressure levels.</li>
+    </ul>
+
+    <h3>Summary</h3>
+    <p><strong>Age</strong> and <strong>BMI</strong> show strong correlations with each other and with blood pressure measures, both pre and post.</p>
+    <p><strong>Blood pressure measures (SBP and DBP)</strong> are highly correlated with each other across pre- and post-measurements.</p>
+    <p><strong>Compliance</strong> does not show significant relationships with age, BMI, or blood pressure levels, indicating that it may not be influenced by these variables in this dataset.</p>
 </div>
 
 
