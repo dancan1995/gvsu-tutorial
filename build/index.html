@@ -34,17 +34,31 @@ header h1 {
     margin: 0;
 }
 
+/* Container to hold sidebar and content */
 .container {
     display: flex;
     flex-grow: 1;
     height: calc(100vh - 80px);
-    flex-direction: row;
+    transition: margin-left 0.3s ease; /* Smooth transition for content shift */
+    margin-left: 0; /* Default position */
 }
 
 .sidebar {
-    width: 100%;
-    max-width: 250px;
-    flex-shrink: 0;
+    width: 250px;
+    height: 100%;
+    background-color: white;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    top: 80px; /* Below the header */
+    transform: translateX(-250px); /* Hidden by default */
+    transition: transform 0.3s ease; /* Smooth sliding */
+}
+
+.sidebar.active {
+    transform: translateX(0); /* Slide in when active */
 }
 
 .sidebar a {
@@ -60,13 +74,21 @@ header h1 {
     background-color: #ddd;
 }
 
+/* Content Section */
 .content {
     flex-grow: 1;
     padding: 20px;
     overflow: auto;
     background-color: #ffffff;
+    transition: margin-left 0.3s ease; /* Smooth transition for content shift */
 }
 
+/* Content Shift */
+.container.shifted {
+    margin-left: 250px; /* Push content to make space for the sidebar */
+}
+
+/* Content Section Styles */
 h2 {
     color: #00548d;
 }
@@ -79,6 +101,7 @@ h2 {
     display: block;
 }
 
+/* Footer Section */
 footer {
     background-color: #00548d;
     color: white;
@@ -128,7 +151,11 @@ th {
     }
 
     .sidebar {
-        max-width: 100%;
+        transform: translateX(-250px); /* Adjusted for hidden state */
+    }
+
+    .container.shifted {
+        margin-left: 250px; /* Push content to make space for the sidebar */
     }
 }
 
@@ -178,14 +205,18 @@ th {
         padding: 15px;
     }
 }
-        
+
     </style>
 </head>
+
 <body>
     <header>
+    <div style="display: flex; flex-direction: column; align-items: flex-start;">
         <img src="https://imgur.com/o29E3rb.jpg" alt="GVSU Logo" width="200" height="80">
-        <h1>Nursing Data Analysis with SPSS</h1>
-    </header>
+    </div>
+    <div class="menu-button">☰ Click Here For Menu</div>
+    <h1>Nursing Data Analysis with SPSS</h1>
+</header>
 
     <div class="container">
         <div class="sidebar">
@@ -618,6 +649,26 @@ th {
         }
         document.getElementById(sectionId).classList.add('active');
     }
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".menu-button");
+    const sidebar = document.querySelector(".sidebar");
+    const container = document.querySelector(".container");
+
+    menuButton.addEventListener("click", function () {
+        // Toggle the sidebar visibility
+        sidebar.classList.toggle("active");
+
+        // Toggle the content shift
+        if (sidebar.classList.contains("active")) {
+            container.classList.add("shifted");
+        } else {
+            container.classList.remove("shifted");
+        }
+    });
+});
 </script>
 
 </body>
