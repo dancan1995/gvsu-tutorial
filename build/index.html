@@ -291,37 +291,49 @@
     <p><strong>Steps in SPSS:</strong></p>
     <ol>
         <li>Go to <em>Analyze > Regression > Linear</em>.</li>
-        <li>Select the dependent variable (e.g., test score) and the independent variable (e.g., hours studied).</li>
+        <img src="https://imgur.com/dp55vl5.png" alt="Simple Linear Regression" width="600" height="500">
+        <li>Select the dependent variable (e.g., compliance) and the independent variable (e.g., age).</li>
+        <img src="https://imgur.com/UtX320N.png" alt="Simple Linear Regression Variables" width="400" height="350">
         <li>Click <strong>OK</strong> to run the regression analysis.</li>
     </ol>
     <p><strong>Example Output:</strong></p>
     
     <h3>Regression Coefficients Table</h3>
-    <table>
-        <tr>
-            <th>Variable</th>
-            <th>B</th>
-            <th>Std. Error</th>
-            <th>t</th>
-            <th>p-value</th>
-        </tr>
-        <tr>
-            <td>Intercept</td>
-            <td>50.00</td>
-            <td>3.00</td>
-            <td>16.67</td>
-            <td>0.000</td>
-        </tr>
-        <tr>
-            <td>Hours Studied</td>
-            <td>5.00</td>
-            <td>0.50</td>
-            <td>10.00</td>
-            <td>0.000</td>
-        </tr>
-    </table>
+    <img src="https://imgur.com/raVSeWP.png" alt="Simple Linear Regression Output" width="600" height="500">
     
-    <p><strong>Interpretation:</strong> The regression analysis shows that for each additional hour studied, the test score increases by 5 points (B = 5.00, p < 0.001). The model is statistically significant, indicating a good fit for the data.</p>
+    <h2>1. Variables Entered/Removed</h2>
+    <p>The regression analysis includes <strong>Age</strong> as the independent variable, with <strong>Compliance</strong> as the dependent variable. No variables were removed, and the method used is "Enter," meaning all entered variables are included in the model.</p>
+
+    <h2>2. Model Summary</h2>
+    <p>The model summary presents the following key statistics:</p>
+    <ul>
+        <li><strong>R</strong>: <strong>0.054</strong> — This indicates a very weak linear relationship between Age and Compliance.</li>
+        <li><strong>R Square</strong>: <strong>0.003</strong> — Only 0.3% of the variance in Compliance is explained by Age, which suggests a very weak explanatory power.</li>
+        <li><strong>Adjusted R Square</strong>: <strong>-0.007</strong> — The negative value indicates that Age is not a good predictor of Compliance, and the model does not improve when adjusting for the number of predictors.</li>
+        <li><strong>Standard Error of the Estimate</strong>: <strong>7.467</strong> — This is the standard deviation of the residuals, indicating how much the observed values of Compliance deviate from the predicted values. A higher value suggests a larger spread of data points around the regression line.</li>
+    </ul>
+
+    <h2>3. ANOVA (Analysis of Variance)</h2>
+    <p>The ANOVA table tests the overall significance of the regression model:</p>
+    <ul>
+        <li><strong>F-value</strong>: <strong>0.283</strong> — This is the ratio of the variance explained by the model to the variance unexplained. A small F-value indicates that the model does not explain much variance in the dependent variable.</li>
+        <li><strong>Significance (Sig.)</strong>: <strong>0.596</strong> — Since the p-value is greater than 0.05, we conclude that the model is not statistically significant. Age does not significantly predict Compliance in this model.</li>
+        <li><strong>Sum of Squares (Regression)</strong>: <strong>15.775</strong> — This is the explained variance by the regression model.</li>
+        <li><strong>Sum of Squares (Residual)</strong>: <strong>5464.225</strong> — This represents the unexplained variance, which is much larger than the explained variance, suggesting that the model does not fit the data well.</li>
+    </ul>
+
+    <h2>4. Coefficients</h2>
+    <p>The coefficients table presents the unstandardized and standardized coefficients for the predictor variable (Age):</p>
+    <ul>
+        <li><strong>Intercept (Constant)</strong>: <strong>81.596</strong> — This is the predicted value of Compliance when Age is zero.</li>
+        <li><strong>Age (Unstandardized Coefficient)</strong>: <strong>0.050</strong> — This indicates that for each one-unit increase in Age, Compliance is expected to increase by 0.050 units. However, this effect is very small.</li>
+        <li><strong>Age (Standardized Coefficient)</strong>: <strong>0.054</strong> — This shows the effect size of Age on Compliance in standardized units. A very small value suggests a weak effect.</li>
+        <li><strong>t-value</strong>: <strong>0.532</strong> — The t-value tests the hypothesis that the coefficient is significantly different from zero. A low t-value indicates that the relationship between Age and Compliance is not statistically significant.</li>
+        <li><strong>Significance (Sig.)</strong>: <strong>0.596</strong> — The p-value is much greater than 0.05, indicating that Age is not a statistically significant predictor of Compliance.</li>
+    </ul>
+
+    <h2>Summary</h2>
+    <p>In conclusion, the regression analysis shows that Age does not significantly predict Compliance in this model. The very small R-square value (0.003) and the p-value (0.596) indicate that Age has little to no explanatory power in predicting Compliance. The model does not fit the data well, and Age is not a statistically significant predictor of Compliance.</p>
 </div>
 
 <div id="multiple-regression" class="content-section">
@@ -329,44 +341,55 @@
     <p><strong>Steps in SPSS:</strong></p>
     <ol>
         <li>Go to <em>Analyze > Regression > Linear</em>.</li>
-        <li>Select the dependent variable (e.g., test score) and multiple independent variables (e.g., hours studied, attendance).</li>
+        <img src="https://imgur.com/dp55vl5.png" alt="Multiple Linear Regression" width="600" height="500">
+        <li>Select the dependent variable (e.g., compliance) and multiple independent variables (e.g., DBP_Post, FollowUpWeeks, BMI, DBP_Pre, Age, SBP_Pre, SBP_Post).</li>
+        <img src="https://imgur.com/4VIfm8M.png" alt="Multiple Linear Regression Variables" width="400" height="400">
         <li>Click <strong>OK</strong> to run the regression analysis.</li>
     </ol>
     <p><strong>Example Output:</strong></p>
     
     <h3>Regression Coefficients Table</h3>
-    <table>
-        <tr>
-            <th>Variable</th>
-            <th>B</th>
-            <th>Std. Error</th>
-            <th>t</th>
-            <th>p-value</th>
-        </tr>
-        <tr>
-            <td>Intercept</td>
-            <td>40.00</td>
-            <td>4.00</td>
-            <td>10.00</td>
-            <td>0.000</td>
-        </tr>
-        <tr>
-            <td>Hours Studied</td>
-            <td>3.50</td>
-            <td>0.70</td>
-            <td>5.00</td>
-            <td>0.000</td>
-        </tr>
-        <tr>
-            <td>Attendance</td>
-            <td>2.00</td>
-            <td>0.50</td>
-            <td>4.00</td>
-            <td>0.001</td>
-        </tr>
-    </table>
-    
-    <p><strong>Interpretation:</strong> The multiple regression analysis indicates that both hours studied (B = 3.50, p < 0.001) and attendance (B = 2.00, p = 0.001) significantly predict test scores. This suggests that higher study hours and better attendance are associated with higher test scores.</p>
+    <img src="https://imgur.com/N43uAtP.png" alt="Regression Coefficients Table" width="600" height="600">
+    <h1>Regression Analysis Interpretation</h1>
+
+    <h2>1. Model Summary</h2>
+    <p>The model summary for the regression analysis with the predictors <strong>DBP_Post</strong>, <strong>FollowUpWeeks</strong>, <strong>BMI</strong>, <strong>DBP_Pre</strong>, <strong>Age</strong>, <strong>SBP_Pre</strong>, and <strong>SBP_Post</strong> shows the following:</p>
+    <ul>
+        <li><strong>R</strong>: <strong>0.950</strong> — This indicates a very strong linear relationship between the predictors and the dependent variable (Compliance).</li>
+        <li><strong>R Square</strong>: <strong>0.902</strong> — This means that 90.2% of the variance in Compliance is explained by the model, which is a very good fit.</li>
+        <li><strong>Adjusted R Square</strong>: <strong>0.895</strong> — The adjusted R-square value accounts for the number of predictors and suggests that the model fits the data well, even with the number of predictors.</li>
+        <li><strong>Standard Error of the Estimate</strong>: <strong>2.411</strong> — This is the standard deviation of the residuals, indicating that the observed values of Compliance deviate from the predicted values by an average of 2.411 units.</li>
+    </ul>
+
+    <h2>2. ANOVA (Analysis of Variance)</h2>
+    <p>The ANOVA table tests the overall significance of the regression model:</p>
+    <ul>
+        <li><strong>F-value</strong>: <strong>121.554</strong> — The large F-value indicates that the model explains a substantial amount of the variance in Compliance.</li>
+        <li><strong>Significance (Sig.)</strong>: <strong>0.000</strong> — Since the p-value is less than 0.05, the model is statistically significant, and we reject the null hypothesis that the model has no explanatory power.</li>
+        <li><strong>Sum of Squares (Regression)</strong>: <strong>4945.297</strong> — This represents the variance explained by the regression model.</li>
+        <li><strong>Sum of Squares (Residual)</strong>: <strong>534.703</strong> — This is the unexplained variance, which is much smaller than the explained variance, suggesting that the model fits the data well.</li>
+    </ul>
+
+    <h2>3. Coefficients</h2>
+    <p>The coefficients table presents the unstandardized and standardized coefficients for the predictors:</p>
+    <ul>
+        <li><strong>Intercept (Constant)</strong>: <strong>130.703</strong> — This is the predicted value of Compliance when all predictor variables are zero.</li>
+        <li><strong>Age (Unstandardized Coefficient)</strong>: <strong>0.275</strong> — For each one-unit increase in Age, Compliance is expected to increase by 0.275 units, with a statistically significant p-value (0.000).</li>
+        <li><strong>BMI (Unstandardized Coefficient)</strong>: <strong>-0.144</strong> — For each one-unit increase in BMI, Compliance is expected to decrease by 0.144 units. However, the p-value (0.531) indicates that this effect is not statistically significant.</li>
+        <li><strong>FollowUpWeeks (Unstandardized Coefficient)</strong>: <strong>2.458</strong> — For each additional week of follow-up, Compliance is expected to increase by 2.458 units, and this effect is statistically significant with a p-value of 0.000.</li>
+        <li><strong>SBP_Pre (Unstandardized Coefficient)</strong>: <strong>0.733</strong> — For each one-unit increase in SBP_Pre, Compliance is expected to increase by 0.733 units, with a statistically significant p-value of 0.000.</li>
+        <li><strong>DBP_Pre (Unstandardized Coefficient)</strong>: <strong>-0.078</strong> — For each one-unit increase in DBP_Pre, Compliance is expected to decrease by 0.078 units. The p-value (0.551) shows that this effect is not statistically significant.</li>
+        <li><strong>SBP_Post (Unstandardized Coefficient)</strong>: <strong>-0.233</strong> — For each one-unit increase in SBP_Post, Compliance is expected to decrease by 0.233 units, but the effect is not statistically significant with a p-value of 0.278.</li>
+        <li><strong>DBP_Post (Unstandardized Coefficient)</strong>: <strong>-1.637</strong> — For each one-unit increase in DBP_Post, Compliance is expected to decrease by 1.637 units, and this effect is statistically significant with a p-value of 0.000.</li>
+    </ul>
+
+    <h2>Summary</h2>
+    <p>In conclusion, the regression analysis shows that several predictors have a statistically significant effect on Compliance:</p>
+    <ul>
+        <li><strong>Age</strong> (p = 0.000), <strong>FollowUpWeeks</strong> (p = 0.000), <strong>SBP_Pre</strong> (p = 0.000), and <strong>DBP_Post</strong> (p = 0.000) are all significant predictors of Compliance.</li>
+        <li><strong>BMI</strong> (p = 0.531), <strong>DBP_Pre</strong> (p = 0.551), and <strong>SBP_Post</strong> (p = 0.278) are not significant predictors of Compliance.</li>
+    </ul>
+    <p>The model explains a large proportion of the variance in Compliance (90.2%), making it a good fit for the data. However, not all predictors are significant, suggesting that further refinement of the model might be needed to improve its explanatory power.</p>
 </div>
 
 <div id="logistic-regression" class="content-section">
@@ -374,48 +397,81 @@
     <p><strong>Steps in SPSS:</strong></p>
     <ol>
         <li>Go to <em>Analyze > Regression > Binary Logistic</em>.</li>
+        <img src="https://imgur.com/M7B01Xv.png" alt="Binary Logistic Regression" width="600" height="500">
         <li>Select the dependent variable (e.g., outcome: disease presence) and independent variables (e.g., age, gender).</li>
+        <img src="https://imgur.com/Iv7DXWz.png" alt="Binary Logistic Regression Variables" width="400" height="350">
         <li>Click <strong>OK</strong> to run the logistic regression.</li>
     </ol>
     <p><strong>Example Output:</strong></p>
     
     <h3>Variables in the Equation</h3>
-    <table>
-        <tr>
-            <th>Variable</th>
-            <th>B</th>
-            <th>Wald</th>
-            <th>df</th>
-            <th>p-value</th>
-            <th>Exp(B)</th>
-        </tr>
-        <tr>
-            <td>Intercept</td>
-            <td>-1.50</td>
-            <td>5.00</td>
-            <td>1</td>
-            <td>0.025</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td>Age</td>
-            <td>0.05</td>
-            <td>4.00</td>
-            <td>1</td>
-            <td>0.045</td>
-            <td>1.05</td>
-        </tr>
-        <tr>
-            <td>Gender (Male)</td>
-            <td>0.80</td>
-            <td>6.50</td>
-            <td>1</td>
-            <td>0.011</td>
-            <td>2.22</td>
-        </tr>
-    </table>
-    
-    <p><strong>Interpretation:</strong> The binary logistic regression analysis shows that age (B = 0.05, p = 0.045) and being male (B = 0.80, p = 0.011) significantly predict the likelihood of having the disease. The odds of having the disease increase by 5% for each additional year of age, and males have approximately 2.22 times the odds of having the disease compared to females.</p>
+    <img src="https://imgur.com/4zTArGa.png" alt="Binary Logistic Regression Output" width="700" height="700">
+    <h1>Regression and Classification Analysis Interpretation</h1>
+
+    <h2>1. Model Summary</h2>
+    <p>The model summary for the regression analysis indicates the following:</p>
+    <ul>
+        <li><strong>R</strong>: <strong>0.950</strong> — This suggests a strong linear relationship between the predictors and the dependent variable (Compliance).</li>
+        <li><strong>R Square</strong>: <strong>0.902</strong> — 90.2% of the variance in Compliance is explained by the model, a very strong fit.</li>
+        <li><strong>Adjusted R Square</strong>: <strong>0.895</strong> — This adjusted value suggests the model is well-fitting even after accounting for the number of predictors used.</li>
+        <li><strong>Standard Error of the Estimate</strong>: <strong>2.411</strong> — The average deviation of the observed values from the predicted values is 2.411 units.</li>
+    </ul>
+
+    <h2>2. ANOVA (Analysis of Variance)</h2>
+    <p>The ANOVA table assesses the overall significance of the regression model:</p>
+    <ul>
+        <li><strong>F-value</strong>: <strong>121.554</strong> — The large F-value indicates that the model significantly explains the variance in Compliance.</li>
+        <li><strong>Significance (Sig.)</strong>: <strong>0.000</strong> — Since the p-value is less than 0.05, the model is statistically significant.</li>
+        <li><strong>Sum of Squares (Regression)</strong>: <strong>4945.297</strong> — The variance explained by the regression model.</li>
+        <li><strong>Sum of Squares (Residual)</strong>: <strong>534.703</strong> — The unexplained variance, which is smaller compared to the explained variance, indicating good model fit.</li>
+    </ul>
+
+    <h2>3. Coefficients</h2>
+    <p>The coefficients table presents the effect of each predictor on Compliance:</p>
+    <ul>
+        <li><strong>Age</strong>: <strong>0.275</strong> (p = 0.000) — A significant positive effect on Compliance, with each unit increase in Age increasing Compliance by 0.275 units.</li>
+        <li><strong>BMI</strong>: <strong>-0.144</strong> (p = 0.531) — No significant effect on Compliance, as the p-value is greater than 0.05.</li>
+        <li><strong>FollowUpWeeks</strong>: <strong>2.458</strong> (p = 0.000) — A significant positive effect on Compliance, with each additional week of follow-up increasing Compliance by 2.458 units.</li>
+        <li><strong>SBP_Pre</strong>: <strong>0.733</strong> (p = 0.000) — A significant positive effect on Compliance, with each unit increase in SBP_Pre increasing Compliance by 0.733 units.</li>
+        <li><strong>DBP_Pre</strong>: <strong>-0.078</strong> (p = 0.551) — No significant effect on Compliance, as the p-value is greater than 0.05.</li>
+        <li><strong>SBP_Post</strong>: <strong>-0.233</strong> (p = 0.278) — No significant effect on Compliance, as the p-value is greater than 0.05.</li>
+        <li><strong>DBP_Post</strong>: <strong>-1.637</strong> (p = 0.000) — A significant negative effect on Compliance, with each unit increase in DBP_Post decreasing Compliance by 1.637 units.</li>
+    </ul>
+
+    <h2>4. Classification Table</h2>
+    <p>For Step 0 (Before Model Adjustment):</p>
+    <ul>
+        <li><strong>Observed Outcome - Improved</strong>: 90 cases predicted correctly with 100% accuracy.</li>
+        <li><strong>Observed Outcome - Partial</strong>: 10 cases predicted incorrectly with 0% accuracy.</li>
+        <li><strong>Overall Percentage Correct</strong>: 90.0%.</li>
+    </ul>
+
+    <p>For Step 1 (After Model Adjustment):</p>
+    <ul>
+        <li><strong>Observed Outcome - Improved</strong>: 90 cases predicted correctly with 100% accuracy.</li>
+        <li><strong>Observed Outcome - Partial</strong>: 0 cases predicted incorrectly with 100% accuracy.</li>
+        <li><strong>Overall Percentage Correct</strong>: 100.0%.</li>
+    </ul>
+
+    <h2>5. Logistic Regression Model (Step 1)</h2>
+    <p>Variables in the Logistic Regression model:</p>
+    <ul>
+        <li><strong>Age</strong>: B = -0.234, Exp(B) = 0.791, p = 1.000 — The effect of Age is not statistically significant.</li>
+        <li><strong>Gender(1)</strong>: B = -25.668, Exp(B) = 0.000, p = 0.999 — The effect of Gender is not statistically significant.</li>
+        <li><strong>BMI</strong>: B = -2.595, Exp(B) = 0.075, p = 1.000 — The effect of BMI is not statistically significant.</li>
+        <li><strong>Compliance</strong>: B = -6.277, Exp(B) = 0.002, p = 0.997 — The effect of Compliance is not statistically significant.</li>
+        <li><strong>Constant</strong>: B = 564.311, Exp(B) = 1.194E+245, p = 0.994 — A very large value for the constant, suggesting a possible issue with the model's estimation or scaling.</li>
+    </ul>
+
+    <h2>6. Omnibus Tests of Model Coefficients</h2>
+    <p>The Omnibus Test evaluates the overall significance of the model:</p>
+    <ul>
+        <li><strong>Chi-square</strong>: <strong>65.017</strong>, p = 0.000 — The model is statistically significant overall.</li>
+        <li><strong>Step</strong>: 65.017, p = 0.000 — Indicates that the model significantly improves compared to the baseline model.</li>
+    </ul>
+
+    <h2>7. Summary</h2>
+    <p>In general, the regression model explains a substantial portion of the variance in Compliance (R² = 0.902), with significant predictors such as Age, FollowUpWeeks, SBP_Pre, and DBP_Post. However, the logistic regression model did not show significant effects for Age, Gender, BMI, or Compliance, suggesting the need for further model refinement.</p>
 </div>
 
 <div id="survival" class="content-section">
@@ -423,6 +479,7 @@
     <p><strong>Steps in SPSS:</strong></p>
     <ol>
         <li>Go to <em>Analyze > Survival > Kaplan-Meier</em>.</li>
+        <img src="https://imgur.com/EbwY0Me.png" alt=" Kaplan-Meier Survival Analysis" width="650" height="600">
         <li>Select the <em>time variable</em> (e.g., survival time) and <em>status variable</em> (e.g., censored or event occurrence).</li>
         <li>Define the event status by coding (e.g., 1 for event occurred, 0 for censored).</li>
         <li>Under <strong>Options</strong>, choose to display the survival plot and log-rank test if needed.</li>
