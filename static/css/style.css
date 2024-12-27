@@ -1,0 +1,173 @@
+/* General Styling (Applies to All Devices) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #00548d;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+}
+
+header img {
+    height: 60px;
+}
+
+header h1 {
+    color: white;
+    font-size: 24px;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-grow: 1;
+    height: calc(100vh - 80px);
+    flex-direction: row;
+}
+
+.sidebar {
+    width: 100%;
+    max-width: 250px;
+    flex-shrink: 0;
+}
+
+.sidebar a {
+    display: block;
+    color: #00548d;
+    padding: 10px 15px;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.sidebar a:hover {
+    background-color: #ddd;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow: auto;
+    background-color: #ffffff;
+}
+
+h2 {
+    color: #00548d;
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
+
+footer {
+    background-color: #00548d;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #00548d;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #00548d;
+    color: white;
+}
+
+/* Responsive Design */
+
+/* For Tablets and Small Screens */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+    }
+
+    header img {
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        max-width: 100%;
+    }
+}
+
+/* For Mobile Phones */
+@media (max-width: 480px) {
+    header img {
+        height: 40px;
+    }
+
+    header h1 {
+        font-size: 18px;
+    }
+
+    .sidebar a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    table, th, td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* Additional Adjustments for Readability on Smaller Screens */
+@media (max-width: 320px) {
+    header h1 {
+        font-size: 16px;
+    }
+
+    .sidebar a {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    table, th, td {
+        font-size: 12px;
+        padding: 6px;
+    }
+
+    footer {
+        font-size: 12px;
+        padding: 15px;
+    }
+}
